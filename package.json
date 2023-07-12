@@ -20,7 +20,7 @@
 		"excel"
 	],
 	"author": "Danila <Danila00000@Gmail.com>",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/Danila95/excel-js/issues"
 	},
