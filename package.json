@@ -1,14 +1,38 @@
 {
-  "name": "excel-js",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^4.4.0"
-  }
+	"name": "excel-js",
+	"private": false,
+	"version": "0.0.0",
+	"type": "module",
+	"description": "analog simple excel on vanilla JavaScript",
+	"scripts": {
+		"start": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"deploy": "gh-pages -d build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Danila95/excel-js.git"
+	},
+	"keywords": [
+		"js",
+		"javascript",
+		"excel"
+	],
+	"author": "Danila <Danila00000@Gmail.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Danila95/excel-js/issues"
+	},
+	"homepage": "https://github.com/Danila95/excel-js#readme",
+	"browserslist": "> 0.25%, not dead",
+	"devDependencies": {
+		"vite": "^4.4.0"
+	},
+	"dependencies": {
+		"@vitejs/plugin-legacy": "^4.1.0",
+		"gh-pages": "^5.0.0",
+		"normalize.css": "^8.0.1",
+		"sass": "^1.63.6"
+	}
 }
