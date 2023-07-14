@@ -2,17 +2,18 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 
-const root = path.resolve(__dirname, '')
+const root = path.resolve(__dirname, 'src')
 const outDir = path.resolve(__dirname, 'build')
 
 export default defineConfig({
 	root,
+	publicDir: '../public',
 	build: {
 		target: 'es2017', // какой версии JS придерживается сборка
 		outDir, // в какую папку будет собираться проект
 		rollupOptions: {
 			input: {
-				main: './index.html'
+				main:path.resolve(__dirname, 'src/index.html'),
 			}
 		},
 		assetsDir: '',
@@ -31,7 +32,6 @@ export default defineConfig({
 		}
 	},
 	plugins: [
-		// ViteAliases(),
 		legacy({ targets: ['defaults', 'not IE 11'] })
 	]
 })
