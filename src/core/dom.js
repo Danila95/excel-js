@@ -1,4 +1,4 @@
-// небольшая библиотечка для упрощения работы с  Dom элементами, аля JQuery
+// небольшая библиотечка для упрощения работы с Dom элементами, аля JQuery
 class Dom {
 	constructor(selector) {
 		this.$el = typeof selector === 'string' ? document.querySelector(selector) : selector
@@ -16,6 +16,7 @@ class Dom {
 		this.html('')
 		return this
 	}
+
 	on(eventType, callback) {
 		this.$el.addEventListener(eventType, callback)
 	}
@@ -28,6 +29,7 @@ class Dom {
 		if (node instanceof Dom) {
 			node = node.$el
 		}
+
 		if (Element.prototype.append) {
 			this.$el.append(node)
 		} else {
@@ -66,6 +68,5 @@ $.create = (tagName, classes = '') => {
 	if (classes) {
 		el.classList.add(classes)
 	}
-	// return $(el)
-	return el
+	return $(el)
 }
