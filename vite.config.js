@@ -27,8 +27,8 @@ export default defineConfig({
 	resolve: {
 		extensions: ['.js', '.json', '.png', '.xml', '.csv'], // теперь в путях не надо писать расш. вызываемых файлов
 		alias: {
-			'@common': path.resolve(__dirname, 'src/components/common.components/common/'),
-			'@': path.resolve(__dirname, 'src')
+			'@': path.resolve(__dirname, 'src'),
+			'@core': path.resolve(__dirname, 'src/core')
 		}
 	},
 	plugins: [
