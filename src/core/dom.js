@@ -47,7 +47,7 @@ class Dom {
 	}
 
 	getCoords() {
-		return this.$el .getBoundingClientRect()
+		return this.$el.getBoundingClientRect()
 	}
 
 	findAll(selector) {
