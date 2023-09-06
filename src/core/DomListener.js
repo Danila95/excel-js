@@ -11,7 +11,7 @@ export class DomListener {
 	}
 
 	initDOMListeners() {
-		console.log(this.listeners, this.$root)
+		// console.log(this.listeners, this.$root)
 		this.listeners.forEach(listener => {
 			const method = getMethodName(listener)
 			if (!this[method]) {
