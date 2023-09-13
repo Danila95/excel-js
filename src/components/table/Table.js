@@ -11,26 +11,43 @@ import { coords, matrix } from '../../core/utils'
 export class Table extends ExcelComponent {
 	static className = 'excel__table'
 
-	constructor($root) {
+	constructor($root, options) {
 		super($root, {
-			listeners: ['mousedown', 'keydown']
+			name: 'Table',
+			listeners: ['mousedown', 'keydown', 'input'],
+			...options
 		})
-		this.msx = 0
-		this.msy = 0
-		this.msdown = false
-		this.selectedItems = new Array()
+		// this.msx = 0
+		// this.msy = 0
+		// this.msdown = false
+		// this.selectedItems = new Array()
 	}
 
 	toHTML() {
 		return createTable(34)
 	}
 
+	prepare() {
+		this.selection = new TableSelection()
+	}
+
 	init() {
 		super.init()
 
-		this.selection = new TableSelection()
-		const $cell = this.$root.find('[data-id="0:0"]')
+		this.selectCell(this.$root.find('[data-id="0:0"]'))
+
+		this.$on('formula:input', text => {
+			this.selection.current.text(text)
+		})
+
+		this.$on('formula:done', text => {
+			this.selection.current.focus()
+		})
+	}
+
+	selectCell($cell) {
 		this.selection.select($cell)
+		this.$emit('table:select', $cell)
 	}
 
 	onMousedown(event) {
@@ -61,8 +78,12 @@ export class Table extends ExcelComponent {
 			event.preventDefault()
 			const id = this.selection.current.id(true)
 			const $next = this.$root.find(nextSelector(key, id))
-			this.selection.select($next)
+			this.selectCell($next)
 		}
+	}
+
+	onInput(event) {
+		this.$emit('table:input', $(event.target))
 	}
 
 	// onMousemove(event) {
